@@ -6,6 +6,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
+app.get("/", async (req, res) => {
+  res.send("Server running");
+});
+
 app.get("/", cors(), (req, res) => {});
 
 app.post("/", async (req, res) => {
@@ -48,6 +52,7 @@ app.post("/signup", async (req, res) => {
     res.json("fail");
   }
 });
+
 
 app.listen(8000, () => {
   console.log("port connected");
